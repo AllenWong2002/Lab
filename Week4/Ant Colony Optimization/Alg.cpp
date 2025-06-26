@@ -155,7 +155,7 @@ void Alg::RunALG(int _Run, int _Iter, int _Ant, double _Alpha, double _Beta, dou
         // best_tour.push_back(37);
         // best_tour.push_back(10);
         // best_tour.push_back(31);
-        best_length = ComputeTourLength(best_tour);
+        // best_length = ComputeTourLength(best_tour);
 
         cout << "Final best tour length: " << best_length << "\n";
         cout << "Tour: ";
