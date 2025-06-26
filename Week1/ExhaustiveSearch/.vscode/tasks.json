@@ -1,0 +1,52 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Compile",
+        "command": "C:\\msys64\\clang64\\bin\\clang++.exe",
+        "args": [
+          "${file}",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.exe",
+          "-g",
+          "-Wall",
+          "-static-libgcc",
+          "-fcolor-diagnostics",
+          "--target=x86_64-w64-mingw",
+          "-std=c++17"
+        ],
+        "type": "shell",
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "shared"
+        },
+        "problemMatcher": []
+      },
+      {
+        "type": "cppbuild",
+        "label": "cpp compile",
+        "command": "C:\\msys64\\clang64\\bin\\clang-cpp.exe",
+        "args": [
+          "-fdiagnostics-color=always",
+          "-g",
+          "${file}",
+          "-o",
+          "${fileDirname}\\${fileBasenameNoExtension}.exe"
+        ],
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "detail": "編譯器: C:\\msys64\\clang64\\bin\\clang-cpp.exe"
+      }
+    ]
+  }
