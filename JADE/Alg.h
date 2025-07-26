@@ -1,7 +1,7 @@
 #ifndef ALG_H
 #define ALG_H
 
-#include "Ackley.cpp"
+#include "TestFunction.cpp"
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,42 +16,37 @@
 using namespace std;
 
 typedef struct Particle{
-    // vector<double> velocity;
     vector<double> position;
     double fitness;
     Particle() : fitness(DBL_MAX){}
-    // vector<double> personal_best_position;
-    // double personal_best_val;
-    // Particle() : personal_best_val(DBL_MAX) {}
-}Particle;
+} Particle;
 
 namespace fs = std::filesystem;
 
-class Alg : Ackley{
+class Alg : TestFunction{
+
 public:
-    void RunALG(int, int, int);
+    void RunALG(int, int, int, int, int);
 
 private:
     // Input from Command-line Argument
+    int Generation;
     int Population;
     int Dimension;
     int Run;
-
-    // calculate the evaluation
-    int nfes;
-    int mnfes;
+    int FunctionID;
 
     // Algorithm parameters
     double p = 0.05; // Selection rate
     double c = 0.1;  // Mutation rate
     double uF = 0.5;
     double uCR = 0.5;
-    double lower_bound = -32.768;
-    double upper_bound = 32.768;
+    double lower_bound;
+    double upper_bound;
 
     void Reset();
-    void Init(vector<Particle> &, int, int, double, double);
-    void Evaluation(const vector<double>&, double &);
+    void Init(vector<Particle> &, int, int, int);
+    void Evaluation(const vector<double>&, double &, int);
 
     vector<Particle> particles;
 };

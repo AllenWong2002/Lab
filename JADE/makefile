@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -O2 -Wall
 
-OBJS = main.o Alg.o Ackley.o
+OBJS = main.o Alg.o TestFunction.o
 
 TARGET = main
 
@@ -16,8 +16,8 @@ main.o: main.cpp Alg.h
 Alg.o: Alg.cpp Alg.h
 	$(CXX) $(CXXFLAGS) -c Alg.cpp
 
-Ackley.o: Ackley.cpp
-	$(CXX) $(CXXFLAGS) -c Ackley.cpp
+TestFunction.o: TestFunction.cpp
+	$(CXX) $(CXXFLAGS) -c TestFunction.cpp
 
 clean:
 	rm -f $(OBJS)
